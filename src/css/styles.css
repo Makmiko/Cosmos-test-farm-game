@@ -1,0 +1,50 @@
+body {
+  font-family: sans-serif;
+  display: flex;
+}
+
+#info {
+  flex: 1;
+  color: #48528c;
+}
+
+#game {
+  flex: 4;
+}
+
+#buttons {
+  flex: 2.5;
+  display: flex;
+  flex-direction: column;
+}
+
+#buttons button {
+  margin: 5px 0;
+}
+
+#canvas {
+  background: #eee;
+  display: block;
+  margin: 0 60px;
+  width: 560px;
+  height: 560px;
+}
+
+.btn {
+  color: #48528c;
+  border: none;
+  cursor: pointer;
+  background-color: #f3f6fd;
+  border-radius: 5px;
+  height: 38px;
+  width: 200px;
+  outline: none;
+  transition: background-color .3s;
+}
+
+.btn:hover {
+  background-color: #e4e6ed;
+}
+.btn:focus {
+  transform: scale(0.9, 0.9);
+}

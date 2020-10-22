@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Farm</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <script src="src/js/Chicken.js"></script>
+    <script src="src/js/Cow.js"></script>
+    <script src="src/js/Eggs.js"></script>
+    <script src="src/js/Milk.js"></script>
+    <script src="src/js/Wheat.js"></script>
+    <script src="src/js/tilefield.js"></script>
+    <script src="src/js/Tile.js"></script>
+    <script src="src/js/Field.js"></script>
+    <script src="src/js/EventListeners.js"></script>
+</head>
+
+<body>
+<div id="info">
+    <h3></h3>
+</div>
+<div id="game">
+    <canvas width="560" height="560" id="canvas"></canvas>
+</div>
+<div id="buttons">
+    <button class="placeable btn" id="placeWheat" hidden>Посадить пшено</button>
+    <button class="placeable btn" id="placeChicken" hidden>Завести курицу</button>
+    <button class="placeable btn" id="placeCow" hidden>Завести корову</button>
+    <button class="btn" id="collect" hidden>Собрать</button>
+    <button class="btn" id="feed" hidden>Покормить</button>
+    <button class="sellable btn" id="sellEggs" hidden>Продать яйца</button>
+    <button class="sellable btn" id="sellMilk" hidden>Продать молоко</button>
+</div>
+<script src="src/index.js"></script>
+</body>
+</html>

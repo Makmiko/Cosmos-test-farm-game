@@ -22,11 +22,13 @@ class Tile {
         ctx.fillStyle = fillStyle;
         ctx.strokeStyle = "#48528c";
         ctx.strokeRect(this.position.x, this.position.y, this.height, this.width);
-        ctx.fillRect(this.position.x + 1, this.position.y + 1, this.height - 2, this.width - 2);
+        ctx.fillRect(this.position.x + 1, this.position.y + 1,
+          this.height - 2, this.width - 2);
         if (this.selected) {
             ctx.strokeStyle = "#ed8862";
             ctx.lineWidth = 2;
-            ctx.strokeRect(this.position.x + 1, this.position.y + 1, this.height - 2, this.width - 2);
+            ctx.strokeRect(this.position.x + 1, this.position.y + 1,
+              this.height - 2, this.width - 2);
         }
         ctx.lineWidth = 1;
         ctx.fillStyle = "#48528c";

@@ -10,21 +10,25 @@ function selectElem(event, canvas) {
 function selectedCommander(event) {
     switch (event.target.id) {
         case "placeWheat":
-            if(!(field.selectedTile.contains instanceof Wheat)) {
+            if(!(field.selectedTile.contains instanceof Wheat) && Wheat.amount > 0) {
             field.selectedTile.place(new Wheat());
         }
             break;
         case "placeChicken":
-            field.selectedTile.place(new Chicken());
+            if (!(field.selectedTile.contains instanceof Chicken)) {
+                field.selectedTile.place(new Chicken());
+            }
             break;
         case "placeCow":
-            field.selectedTile.place(new Cow());
+            if (!(field.selectedTile.contains instanceof Cow)) {
+                field.selectedTile.place(new Cow());
+            }
             break;
         case "collect":
             field.selectedTile.contains.collect();
             break;
         case "feed":
-            field.selectedTile.contains.feed();
+            if (Wheat.amount > 0) field.selectedTile.contains.feed();
             break;
         case "sellEggs":
             field.money += Eggs.sellAll();
@@ -36,7 +40,7 @@ function selectedCommander(event) {
 
 function displayInfo() {
     let info = document.getElementById("info");
-    info.firstElementChild.innerHTML = "Пшено: " + Wheat.amount
+    info.firstElementChild.innerHTML = "Пшеница: " + Wheat.amount
         + "<br>Яйца: " + Eggs.amount
         + "<br>Молоко: " + Milk.amount
         + "<br>Деньги: " + field.money;

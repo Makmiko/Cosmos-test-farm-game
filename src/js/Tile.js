@@ -11,24 +11,35 @@ class Tile {
 
     draw(ctx, deltaTime) {
         ctx.font = "16px Arial";
-        let name = this.contains ? this.contains.name : "nothing";
-        let ifContains = this.contains ? "#99BE50" : "white";
-        ctx.fillStyle = this.selected ? "#ed8862" : ifContains;
+        const name = this.contains && this.contains.name;
+        const translatedName = this.contains ? this.contains.translatedName : "Пусто";
+        let fillStyle = "white";
+        if (this.selected && !this.contains) {
+            fillStyle = "#ed8862"
+        } else if (this.contains) {
+            fillStyle = "#99BE50";
+        }
+        ctx.fillStyle = fillStyle;
         ctx.strokeStyle = "#48528c";
         ctx.fillRect(this.position.x, this.position.y, this.height, this.width);
-        ctx.strokeRect(this.position.x, this.position.y, this.height, this.width);
+        if (this.selected) {
+            ctx.strokeStyle = "#ed8862";
+            ctx.lineWidth = 2;
+            ctx.strokeRect(this.position.x, this.position.y, this.height - 2, this.width - 2);
+        } else {
+            ctx.strokeRect(this.position.x, this.position.y, this.height, this.width);
+        }
+        ctx.lineWidth = 1;
         ctx.fillStyle = "#48528c";
-        ctx.fillText(name, this.position.x+5, this.position.y+15, this.width-15);
+        ctx.fillText(translatedName, this.position.x+5, this.position.y+15, this.width-15);
         if (name === "Wheat") {
-            ctx.fillText("wheat: " + this.contains.stage, this.position.x+5, this.position.y+50, this.width-15);
+            ctx.fillText("пшеница: " + this.contains.stage, this.position.x+5, this.position.y+50, this.width-15);
         } else if (name === "Cow") {
-            ctx.fillText("food: " + this.contains.foodOutput, this.position.x+5, this.position.y+50, this.width-15);
-            // ctx.fillText("food: " + (this.contains.food === -1 ? 0 : this.contains.food),
-            //   this.position.x+5, this.position.y+50, this.width-15);
-            ctx.fillText("milk: " + this.contains.milk, this.position.x+5, this.position.y+35, this.width-15);
+            ctx.fillText("корм: " + this.contains.foodOutput, this.position.x+5, this.position.y+50, this.width-15);
+            ctx.fillText("молоко: " + this.contains.milk, this.position.x+5, this.position.y+35, this.width-15);
         } else if (name === "Chicken") {
-            ctx.fillText("food: " + this.contains.foodOutput,this.position.x+5, this.position.y+50, this.width-15);
-            ctx.fillText("eggs: " + this.contains.eggs, this.position.x+5, this.position.y+35, this.width-15);
+            ctx.fillText("корм: " + this.contains.foodOutput,this.position.x+5, this.position.y+50, this.width-15);
+            ctx.fillText("яйца: " + this.contains.eggs, this.position.x+5, this.position.y+35, this.width-15);
         }
         this.startLoading(ctx, deltaTime);
     }

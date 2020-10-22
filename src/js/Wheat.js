@@ -1,5 +1,6 @@
 class Wheat {
     name = "Wheat";
+    translatedName = "Пшеница";
     stage = 0;
     static amount = 50;
     static speed = 10;

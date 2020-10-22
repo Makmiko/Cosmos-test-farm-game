@@ -1,5 +1,6 @@
 class Cow {
     name = "Cow";
+    translatedName = "Корова";
     static speed = 20;
     food = 0;
     milk = 0;
